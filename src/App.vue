@@ -1,60 +1,28 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+	<v-app>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+		<Header />
 
-      <v-spacer></v-spacer>
+		<v-main>
+			<keep-alive>
+				<router-view />
+			</keep-alive>
+		</v-main>
 
-      <v-btn
-        @click.stop="showRegForm = true"
-        text
-      >
-        <span class="mr-2">Регистрация</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-    <RegForm v-model="showRegForm"/>
-  </v-app>
+	</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Header from './components/blocks/header.vue'
 
 export default {
-  name: 'App',
+	name: 'App',
 
-  components: {
-    HelloWorld,
-    RegForm: () => import('./components/reg-form.vue')
-  },
+	components: {
+		Header
+	}
 
-  data: () => ({
-    showRegForm: false
-  }),
-};
+}
 </script>
+
+

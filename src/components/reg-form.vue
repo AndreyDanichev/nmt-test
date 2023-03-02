@@ -150,9 +150,9 @@ export default {
 	},
 	methods: {
 		regAction () {
-			if (this.$refs['reg-form'].validate()) {
+			if (!this.$refs['reg-form'].validate()) {
 				this.loading = true
-				this.$http.post('http://localhost:8081', this.user)
+				this.$http.get('categories')
 					.then(res => console.log(res.data))
 					.catch(e => console.log(e.message))
 					.finally(() => this.loading = false)
